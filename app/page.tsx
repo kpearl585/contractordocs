@@ -1,157 +1,467 @@
 'use client'
 
+import { useState } from 'react'
+
+const ShieldIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+)
+const LockIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+)
+const DownloadIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+)
+const StarIcon = ({ size = 20, fill = 'none', color = 'currentColor' }: { size?: number; fill?: string; color?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill={fill} stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+)
+const FileIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+)
+const CheckIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+)
+const XIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+)
+const WarningIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+)
+const VetStar = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="#c9a84c" xmlns="http://www.w3.org/2000/svg"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+)
+const ChevronIcon = ({ open }: { open: boolean }) => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform 0.2s' }}><polyline points="6 9 12 15 18 9"/></svg>
+)
+
+const DOCUMENTS = [
+  { name: 'Contractor Estimate Template', desc: 'Professional quote with scope, materials, labor breakdown and payment terms', file: 'contractor-estimate-template.txt' },
+  { name: 'Service Agreement / Contract', desc: 'Protect yourself legally on every job with a signed contract', file: 'contractor-agreement.txt' },
+  { name: 'Change Order Form', desc: 'Document every change to avoid disputes and get paid for extras', file: 'change-order-form.txt' },
+  { name: 'Conditional Lien Waiver', desc: 'Required for progress payments in most states', file: 'lien-waiver-conditional.txt' },
+  { name: 'Final Lien Waiver', desc: 'Close out jobs cleanly and protect your clients', file: 'lien-waiver-final.txt' },
+  { name: 'Scope of Work', desc: "Define exactly what is and isn't included in every job", file: 'scope-of-work.txt' },
+  { name: 'Subcontractor Agreement', desc: 'Hire subs legally with clear terms and liability protection', file: 'subcontractor-agreement.txt' },
+  { name: 'Warranty Certificate', desc: 'Professional warranty documentation that builds trust', file: 'warranty-certificate.txt' },
+]
+
+const PREVIEWS: Record<string, string> = {
+  'contractor-estimate-template.txt': `================================================================================\n                          CONTRACTOR ESTIMATE / PROPOSAL\n================================================================================\n\nCONTRACTOR INFORMATION\n----------------------\nCompany Name:     [YOUR COMPANY NAME]\nLicense Number:   [LICENSE NUMBER]\nAddress:          [ADDRESS], [CITY], [STATE] [ZIP]`,
+  'contractor-agreement.txt': `================================================================================\n                    CONTRACTOR SERVICE AGREEMENT / CONTRACT\n================================================================================\n\nThis Contractor Service Agreement ("Agreement") is entered into as of\n[DATE] by and between:\n\nCONTRACTOR:\n  Company Name:     [YOUR COMPANY NAME]\n  License Number:   [LICENSE NUMBER]`,
+  'change-order-form.txt': `================================================================================\n                             CHANGE ORDER FORM\n================================================================================\n\nCHANGE ORDER #:   [CO-NUMBER — e.g., CO-001]\nDATE:             [DATE]\nPROJECT:          [PROJECT NAME / ADDRESS]\n\nCONTRACTOR:\n  Company Name:   [YOUR COMPANY NAME]`,
+  'lien-waiver-conditional.txt': `================================================================================\n              CONDITIONAL WAIVER AND RELEASE ON PROGRESS PAYMENT\n================================================================================\n\nIMPORTANT NOTICE: This document waives and releases lien and payment bond\nrights conditionally. You may not enforce this waiver unless and until you\nconfirm that the check has cleared.`,
+  'lien-waiver-final.txt': `================================================================================\n            UNCONDITIONAL WAIVER AND RELEASE ON FINAL PAYMENT\n================================================================================\n\nIMPORTANT NOTICE: This document waives and releases lien and payment bond\nrights unconditionally. This is effective regardless of whether you have\nactually been paid.`,
+  'scope-of-work.txt': `================================================================================\n                         SCOPE OF WORK DOCUMENT\n================================================================================\n\nPROJECT INFORMATION\n-------------------\nProject Name:       [PROJECT NAME]\nJob Number:         [JOB NUMBER]\nDate Prepared:      [DATE]\nVersion:            [1.0]\n\nCONTRACTOR:\n  Company Name:`,
+  'subcontractor-agreement.txt': `================================================================================\n                       SUBCONTRACTOR AGREEMENT\n================================================================================\n\nThis Subcontractor Agreement ("Agreement") is entered into as of\n[DATE] by and between:\n\nGENERAL CONTRACTOR ("Contractor"):\n  Company Name:     [YOUR COMPANY NAME]`,
+  'warranty-certificate.txt': `================================================================================\n                         WARRANTY CERTIFICATE\n================================================================================\n\n                    CERTIFICATE OF LIMITED WARRANTY\n\n================================================================================\n\nCONTRACTOR:\n  Company Name:     [YOUR COMPANY NAME]`,
+}
+
 const PRODUCTS = [
   {
     id: 'single',
     name: 'Single Document',
     price: '$27',
-    priceNote: 'one-time',
-    description: 'Pick any one document from our library.',
+    desc: 'Pick any one document from our library.',
     features: ['1 professional template', 'Instant PDF download', 'Editable Word version', 'Unlimited use license'],
     cta: 'Buy Single Doc',
     popular: false,
-    stripeLink: 'https://buy.stripe.com/7sY14g1jH441dO42Gid3i01'
+    link: 'https://buy.stripe.com/7sY14g1jH441dO42Gid3i01',
   },
   {
     id: 'bundle',
     name: 'Contractor Bundle',
     price: '$97',
-    priceNote: 'one-time',
-    description: 'All 8 documents. Everything you need to run a professional contracting business.',
+    desc: 'All 8 documents. Everything you need to run a professional contracting business.',
     features: ['All 8 templates', 'Instant download', 'Editable Word + PDF', 'Unlimited use license', 'Free updates', 'Email support'],
     cta: 'Get Full Bundle',
     popular: true,
-    stripeLink: 'https://buy.stripe.com/aFafZa6E15858tK1Ced3i02'
+    link: 'https://buy.stripe.com/aFafZa6E15858tK1Ced3i02',
   },
   {
     id: 'state',
     name: 'State-Specific Package',
     price: '$197',
-    priceNote: 'one-time',
-    description: "All 8 documents customized for your state's legal requirements.",
+    desc: "All 8 documents customized for your state's legal requirements.",
     features: ['All 8 templates', 'State law compliant', 'Attorney reviewed language', 'Instant download', 'Unlimited use license', 'Priority email support'],
     cta: 'Get State Package',
     popular: false,
-    stripeLink: 'https://buy.stripe.com/14AdR20fD1VT4dubcOd3i03'
-  }
+    link: 'https://buy.stripe.com/14AdR20fD1VT4dubcOd3i03',
+  },
 ]
 
-const DOCUMENTS = [
-  { name: 'Contractor Estimate Template', desc: 'Professional quote with scope, materials, labor breakdown and payment terms' },
-  { name: 'Service Agreement / Contract', desc: 'Protect yourself legally on every job with a signed contract' },
-  { name: 'Change Order Form', desc: 'Document every change to avoid disputes and get paid for extras' },
-  { name: 'Conditional Lien Waiver', desc: 'Required for progress payments in most states' },
-  { name: 'Final Lien Waiver', desc: 'Close out jobs cleanly and protect your clients' },
-  { name: 'Scope of Work', desc: "Define exactly what is and isn't included in every job" },
-  { name: 'Subcontractor Agreement', desc: 'Hire subs legally with clear terms and liability protection' },
-  { name: 'Warranty Certificate', desc: 'Professional warranty documentation that builds trust' },
+const FAQS = [
+  { q: 'Are these documents legally valid?', a: 'Yes. They use attorney-reviewed language that holds up. Always have both parties sign before work begins.' },
+  { q: 'What states do these work in?', a: 'All 50 states. The State-Specific Package includes state law addendums tailored to your jurisdiction.' },
+  { q: 'What format do I receive?', a: 'PDF + editable Word (.docx) versions are both included in your download.' },
+  { q: 'Can I use these for multiple jobs?', a: 'Yes. Unlimited use license. Use them on every job, forever. No restrictions.' },
+  { q: 'What if they don\'t work for my business?', a: '30-day money back guarantee, no questions asked. Email us and you\'ll get a full refund.' },
+  { q: 'How is this different from free templates online?', a: 'Free templates are generic and often missing critical clauses. Ours are contractor-specific with proper indemnification, lien rights, and payment terms.' },
 ]
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div
+      style={{ borderBottom: '1px solid rgba(255,255,255,0.07)', cursor: 'pointer' }}
+      onClick={() => setOpen(!open)}
+    >
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.25rem 0', gap: '1rem' }}>
+        <span style={{ fontWeight: 600, fontSize: '0.95rem', color: '#fff' }}>{q}</span>
+        <span style={{ flexShrink: 0, color: 'rgba(255,255,255,0.4)' }}><ChevronIcon open={open} /></span>
+      </div>
+      {open && (
+        <div style={{ paddingBottom: '1.25rem', color: 'rgba(255,255,255,0.6)', fontSize: '0.9rem', lineHeight: 1.7 }}>{a}</div>
+      )}
+    </div>
+  )
+}
+
+function PreviewModal({ doc, onClose }: { doc: typeof DOCUMENTS[0]; onClose: () => void }) {
+  return (
+    <div
+      style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, padding: '1rem' }}
+      onClick={onClose}
+    >
+      <div
+        style={{ background: '#0f1729', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '2rem', maxWidth: '640px', width: '100%', maxHeight: '80vh', overflow: 'auto' }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+          <div>
+            <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.25rem' }}>Document Preview</div>
+            <div style={{ fontWeight: 700, fontSize: '1rem' }}>{doc.name}</div>
+          </div>
+          <button
+            onClick={onClose}
+            style={{ background: 'rgba(255,255,255,0.07)', border: 'none', color: '#fff', borderRadius: '6px', padding: '0.5rem 0.75rem', cursor: 'pointer', fontSize: '0.85rem' }}
+          >
+            Close
+          </button>
+        </div>
+        <pre style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'rgba(255,255,255,0.65)', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', padding: '1.25rem', overflowX: 'auto', whiteSpace: 'pre-wrap', lineHeight: 1.6 }}>
+          {PREVIEWS[doc.file] || 'Preview not available.'}
+        </pre>
+        <p style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)', textAlign: 'center' }}>
+          First page preview. Full document included in your purchase.
+        </p>
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
+  const [previewDoc, setPreviewDoc] = useState<typeof DOCUMENTS[0] | null>(null)
+  const [email, setEmail] = useState('')
+  const [captured, setCaptured] = useState(false)
+  const [downloadUrl, setDownloadUrl] = useState('')
+  const [submitting, setSubmitting] = useState(false)
+
+  async function handleCapture(e: React.FormEvent) {
+    e.preventDefault()
+    setSubmitting(true)
+    try {
+      const res = await fetch('/api/capture', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      const data = await res.json()
+      if (data.success) {
+        setCaptured(true)
+        setDownloadUrl(data.downloadUrl)
+      }
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  const s = {
+    page: { background: '#0a0f1a', minHeight: '100vh', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif' } as React.CSSProperties,
+    container: { maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' } as React.CSSProperties,
+  }
+
   return (
-    <main style={{ background: '#0a0f1a', minHeight: '100vh', color: '#fff', fontFamily: 'system-ui, sans-serif' }}>
-      <nav style={{ padding: '1.25rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.06)', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>ContractorDocuments<span style={{ color: '#2563eb' }}>.ai</span></div>
-        <a href="#pricing" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1.25rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem' }}>Get Templates →</a>
+    <main style={s.page}>
+      {previewDoc && <PreviewModal doc={previewDoc} onClose={() => setPreviewDoc(null)} />}
+
+      {/* NAV */}
+      <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '1.25rem 0' }}>
+        <div style={{ ...s.container, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ fontWeight: 800, fontSize: '1.15rem', letterSpacing: '-0.02em' }}>
+            ContractorDocuments<span style={{ color: '#2563eb' }}>.com</span>
+          </div>
+          <a
+            href="#pricing"
+            style={{ background: '#2563eb', color: '#fff', padding: '0.55rem 1.25rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem', letterSpacing: '-0.01em' }}
+          >
+            Get Templates
+          </a>
+        </div>
       </nav>
 
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(5rem,10vw,8rem) 2rem 4rem', textAlign: 'center' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.3)', borderRadius: '100px', padding: '0.4rem 1rem', marginBottom: '2rem' }}>
-          <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#2563eb', display: 'block' }} />
-          <span style={{ fontSize: '0.75rem', color: '#2563eb', letterSpacing: '0.08em', fontWeight: 600 }}>TRUSTED BY CONTRACTORS ACROSS THE US</span>
-        </div>
-        <h1 style={{ fontSize: 'clamp(2.5rem,6vw,5rem)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>
-          Stop Losing Jobs<br /><span style={{ color: '#2563eb' }}>Because You Had No Contract.</span>
-        </h1>
-        <p style={{ fontSize: 'clamp(1rem,1.5vw,1.2rem)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, maxWidth: '600px', margin: '0 auto 3rem' }}>
-          Professional contractor documents written by legal experts. Protect your business, get paid faster, and look like the pro you are — starting today.
-        </p>
-        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="#pricing" style={{ background: '#2563eb', color: '#fff', padding: '1rem 2.5rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 700, fontSize: '1rem', boxShadow: '0 0 40px rgba(37,99,235,0.3)' }}>Get All 8 Templates — $97 →</a>
-          <a href="#documents" style={{ color: 'rgba(255,255,255,0.6)', padding: '1rem 1.5rem', textDecoration: 'none', fontSize: '0.95rem' }}>See What&apos;s Included ↓</a>
-        </div>
-        <p style={{ marginTop: '1.5rem', color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>One-time payment. Instant download. No subscription.</p>
-      </section>
-
-      <section style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '4rem 2rem' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.5rem)', fontWeight: 700, marginBottom: '3rem', letterSpacing: '-0.02em' }}>Sound familiar?</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
-            {[
-              { problem: 'Customer disputes the scope after the job', cost: 'Avg loss: $2,400' },
-              { problem: 'No signed contract = no legal protection', cost: 'Avg dispute: $5,000' },
-              { problem: 'Attorney fees just to get basic docs', cost: 'Avg cost: $800+' },
-            ].map(p => (
-              <div key={p.problem} style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: '10px', padding: '1.5rem', textAlign: 'left' }}>
-                <p style={{ color: '#fff', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.4 }}>{p.problem}</p>
-                <p style={{ color: '#ef4444', fontSize: '0.85rem', fontWeight: 600 }}>{p.cost}</p>
-              </div>
-            ))}
+      {/* HERO */}
+      <section style={{ padding: 'clamp(5rem,10vw,8rem) 0 4rem', textAlign: 'center' }}>
+        <div style={s.container}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '100px', padding: '0.4rem 1rem', marginBottom: '2rem' }}>
+            <VetStar />
+            <span style={{ fontSize: '0.7rem', color: '#c9a84c', letterSpacing: '0.12em', fontWeight: 700 }}>VETERAN-OWNED & OPERATED</span>
           </div>
-          <p style={{ marginTop: '2.5rem', fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)' }}>
-            One disputed job costs more than <strong style={{ color: '#fff' }}>10 years</strong> of ContractorDocuments.com.
+          <h1 style={{ fontSize: 'clamp(2.5rem,6vw,5rem)', fontWeight: 800, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '1.5rem' }}>
+            Stop Losing Jobs<br /><span style={{ color: '#2563eb' }}>Because You Had No Contract.</span>
+          </h1>
+          <p style={{ fontSize: 'clamp(1rem,1.5vw,1.15rem)', color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, maxWidth: '580px', margin: '0 auto 2.5rem' }}>
+            Professional contractor documents written with attorney-reviewed language. Protect your business, get paid faster, and look like the established operation you are — starting today.
           </p>
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '1.5rem' }}>
+            <a
+              href="https://buy.stripe.com/aFafZa6E15858tK1Ced3i02"
+              style={{ background: '#2563eb', color: '#fff', padding: '1rem 2.5rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 700, fontSize: '1rem', boxShadow: '0 0 40px rgba(37,99,235,0.3)', letterSpacing: '-0.01em' }}
+            >
+              Get All 8 Templates — $97
+            </a>
+            <a
+              href="#sample"
+              style={{ background: 'rgba(255,255,255,0.07)', color: 'rgba(255,255,255,0.85)', padding: '1rem 1.75rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem', border: '1px solid rgba(255,255,255,0.1)' }}
+            >
+              Download Free Sample
+            </a>
+          </div>
+          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>Trusted by contractors across the US · One-time payment · No subscription</p>
         </div>
       </section>
 
-      <section id="documents" style={{ maxWidth: '1200px', margin: '0 auto', padding: '5rem 2rem' }}>
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>WHAT YOU GET</div>
-          <h2 style={{ fontSize: 'clamp(1.75rem,3vw,2.75rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>8 Professional Templates</h2>
-          <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '0.75rem' }}>Everything a contractor needs to operate professionally and legally.</p>
-        </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
-          {DOCUMENTS.map((doc, i) => (
-            <div key={doc.name} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '10px', padding: '1.5rem', display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
-              <div style={{ width: '32px', height: '32px', background: 'rgba(37,99,235,0.15)', borderRadius: '6px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#2563eb', fontWeight: 700, fontSize: '0.875rem' }}>{i + 1}</div>
-              <div>
-                <div style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '0.35rem' }}>{doc.name}</div>
-                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{doc.desc}</div>
-              </div>
+      {/* TRUST BAR */}
+      <section style={{ background: 'rgba(255,255,255,0.025)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '1.5rem 0' }}>
+        <div style={{ ...s.container, display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2.5rem' }}>
+          {[
+            { icon: <ShieldIcon />, label: 'Attorney-Reviewed Language' },
+            { icon: <LockIcon />, label: 'Secure Checkout' },
+            { icon: <DownloadIcon />, label: 'Instant Download' },
+            { icon: <StarIcon />, label: '30-Day Guarantee' },
+          ].map(item => (
+            <div key={item.label} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', color: 'rgba(255,255,255,0.55)', fontSize: '0.85rem', fontWeight: 500 }}>
+              <span style={{ color: '#2563eb' }}>{item.icon}</span>
+              {item.label}
             </div>
           ))}
         </div>
       </section>
 
-      <section id="pricing" style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '5rem 2rem' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+      {/* PROBLEM SECTION */}
+      <section style={{ padding: '5rem 0' }}>
+        <div style={s.container}>
           <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-            <h2 style={{ fontSize: 'clamp(1.75rem,3vw,2.75rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>Simple, One-Time Pricing</h2>
-            <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '0.75rem' }}>No subscriptions. No renewals. Pay once, use forever.</p>
+            <div style={{ fontSize: '0.7rem', color: '#ef4444', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '0.75rem', fontWeight: 700 }}>THE REAL COST</div>
+            <h2 style={{ fontSize: 'clamp(1.75rem,3vw,2.75rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>Sound familiar?</h2>
           </div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
-            {PRODUCTS.map(p => (
-              <div key={p.id} style={{ background: p.popular ? 'rgba(37,99,235,0.08)' : 'rgba(255,255,255,0.03)', border: p.popular ? '2px solid rgba(37,99,235,0.5)' : '1px solid rgba(255,255,255,0.07)', borderRadius: '12px', padding: '2rem', position: 'relative' }}>
-                {p.popular && <div style={{ position: 'absolute', top: '-12px', left: '50%', transform: 'translateX(-50%)', background: '#2563eb', color: '#fff', fontSize: '0.7rem', fontWeight: 700, padding: '0.3rem 1rem', borderRadius: '100px', letterSpacing: '0.08em' }}>MOST POPULAR</div>}
-                <div style={{ fontSize: '1rem', fontWeight: 700, marginBottom: '0.5rem' }}>{p.name}</div>
-                <div style={{ fontSize: '2.5rem', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '0.25rem' }}>{p.price}</div>
-                <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginBottom: '1.25rem' }}>{p.priceNote}</div>
-                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.6, marginBottom: '1.5rem' }}>{p.description}</p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-                  {p.features.map(f => (
-                    <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a href={p.stripeLink} style={{ display: 'block', background: p.popular ? '#2563eb' : 'rgba(255,255,255,0.08)', color: '#fff', padding: '0.875rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 700, textAlign: 'center', fontSize: '0.9rem' }}>{p.cta}</a>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.25rem' }}>
+            {[
+              { problem: 'Customer disputes the scope after the job', cost: 'Avg loss: $2,400' },
+              { problem: 'No signed contract = no legal protection', cost: 'Avg dispute: $5,000' },
+              { problem: 'Attorney fees just to get basic docs', cost: 'Avg cost: $800+' },
+            ].map(p => (
+              <div key={p.problem} style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: '10px', padding: '1.5rem' }}>
+                <div style={{ color: '#ef4444', marginBottom: '0.75rem' }}><WarningIcon /></div>
+                <p style={{ color: '#fff', fontWeight: 600, marginBottom: '0.5rem', lineHeight: 1.45, fontSize: '0.95rem' }}>{p.problem}</p>
+                <p style={{ color: '#ef4444', fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.02em' }}>{p.cost}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section style={{ maxWidth: '700px', margin: '0 auto', padding: '5rem 2rem', textAlign: 'center' }}>
-        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🛡️</div>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, marginBottom: '1rem', letterSpacing: '-0.02em' }}>30-Day Money-Back Guarantee</h2>
-        <p style={{ color: 'rgba(255,255,255,0.55)', lineHeight: 1.75, fontSize: '1rem' }}>
-          If these templates don&apos;t work for your business, email us within 30 days for a full refund. No questions asked.
-        </p>
+      {/* DOCUMENT SHOWCASE */}
+      <section id="documents" style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '5rem 0' }}>
+        <div style={s.container}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '0.75rem', fontWeight: 700 }}>WHAT YOU GET</div>
+            <h2 style={{ fontSize: 'clamp(1.75rem,3vw,2.75rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>8 Professional Templates</h2>
+            <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '0.75rem' }}>Everything a contractor needs to operate professionally and legally.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+            {DOCUMENTS.map((doc) => (
+              <div key={doc.name} style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.07)', borderRadius: '10px', padding: '1.5rem', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                  <div style={{ width: '36px', height: '36px', background: 'rgba(37,99,235,0.12)', borderRadius: '7px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#2563eb' }}>
+                    <FileIcon />
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontWeight: 700, fontSize: '0.9rem', marginBottom: '0.3rem', lineHeight: 1.3 }}>{doc.name}</div>
+                    <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.45)', lineHeight: 1.5 }}>{doc.desc}</div>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setPreviewDoc(doc)}
+                  style={{ background: 'rgba(37,99,235,0.1)', border: '1px solid rgba(37,99,235,0.25)', color: '#60a5fa', borderRadius: '6px', padding: '0.45rem 1rem', fontSize: '0.78rem', fontWeight: 600, cursor: 'pointer', alignSelf: 'flex-start', letterSpacing: '0.01em' }}
+                >
+                  Preview
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '2rem', textAlign: 'center' }}>
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem' }}>© 2026 ContractorDocuments.com — A Pearl Ventures Company · <a href="mailto:support@contractordocuments.com" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}>support@contractordocuments.com</a></p>
+      {/* BEFORE / AFTER */}
+      <section style={{ padding: '5rem 0' }}>
+        <div style={s.container}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <h2 style={{ fontSize: 'clamp(1.75rem,3vw,2.75rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>The Difference Is Clear</h2>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+            <div style={{ background: 'rgba(239,68,68,0.05)', border: '1px solid rgba(239,68,68,0.15)', borderRadius: '12px', padding: '2rem' }}>
+              <div style={{ color: '#ef4444', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Without ContractorDocuments</div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+                {['Handshake agreements that fall apart', 'Disputes with no paper trail', 'Paying $500+ for basic contracts', 'Looking unprofessional to clients', 'Losing money on scope creep'].map(item => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)' }}>
+                    <span style={{ flexShrink: 0, marginTop: '1px' }}><XIcon /></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div style={{ background: 'rgba(34,197,94,0.05)', border: '1px solid rgba(34,197,94,0.2)', borderRadius: '12px', padding: '2rem' }}>
+              <div style={{ color: '#22c55e', fontWeight: 700, fontSize: '0.8rem', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>With ContractorDocuments</div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+                {['Signed contracts on every job', 'Clear scope eliminates disputes', 'Professional documents instantly', 'Legally protected on every job', 'Look like an established operation'].map(item => (
+                  <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem', fontSize: '0.88rem', color: 'rgba(255,255,255,0.65)' }}>
+                    <span style={{ flexShrink: 0, marginTop: '1px' }}><CheckIcon /></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FREE SAMPLE / EMAIL CAPTURE */}
+      <section id="sample" style={{ background: 'rgba(37,99,235,0.05)', borderTop: '1px solid rgba(37,99,235,0.12)', borderBottom: '1px solid rgba(37,99,235,0.12)', padding: '5rem 0' }}>
+        <div style={{ ...s.container, maxWidth: '600px', textAlign: 'center' }}>
+          <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '0.75rem', fontWeight: 700 }}>FREE DOWNLOAD</div>
+          <h2 style={{ fontSize: 'clamp(1.5rem,3vw,2.25rem)', fontWeight: 700, letterSpacing: '-0.02em', marginBottom: '0.75rem' }}>Try Before You Buy</h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2rem', lineHeight: 1.65 }}>
+            Download our Scope of Work template free. No credit card. No strings.
+          </p>
+          {!captured ? (
+            <form onSubmit={handleCapture} style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', justifyContent: 'center' }}>
+              <input
+                type="email"
+                required
+                placeholder="your@email.com"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                style={{ flex: '1', minWidth: '220px', background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '7px', padding: '0.75rem 1rem', color: '#fff', fontSize: '0.9rem', outline: 'none' }}
+              />
+              <button
+                type="submit"
+                disabled={submitting}
+                style={{ background: '#2563eb', color: '#fff', border: 'none', borderRadius: '7px', padding: '0.75rem 1.5rem', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer', whiteSpace: 'nowrap' }}
+              >
+                {submitting ? 'Sending...' : 'Download Free Template'}
+              </button>
+            </form>
+          ) : (
+            <div>
+              <a
+                href={downloadUrl}
+                download
+                style={{ display: 'inline-block', background: '#22c55e', color: '#fff', padding: '0.875rem 2rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 700, fontSize: '0.95rem', marginBottom: '1rem' }}
+              >
+                Download Scope of Work Template
+              </a>
+              <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '0.85rem' }}>Check your email for the full bundle offer.</p>
+            </div>
+          )}
+          <p style={{ marginTop: '1rem', color: 'rgba(255,255,255,0.25)', fontSize: '0.75rem' }}>No spam. Unsubscribe anytime.</p>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" style={{ padding: '5rem 0' }}>
+        <div style={s.container}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '0.75rem', fontWeight: 700 }}>PRICING</div>
+            <h2 style={{ fontSize: 'clamp(1.75rem,3vw,2.75rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>Simple, One-Time Pricing</h2>
+            <p style={{ color: 'rgba(255,255,255,0.45)', marginTop: '0.75rem' }}>No subscriptions. No renewals. Pay once, use forever.</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', alignItems: 'start' }}>
+            {PRODUCTS.map(p => (
+              <div key={p.id} style={{ background: p.popular ? 'rgba(37,99,235,0.08)' : 'rgba(255,255,255,0.03)', border: p.popular ? '2px solid rgba(37,99,235,0.5)' : '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', padding: '2rem', position: 'relative' }}>
+                {p.popular && (
+                  <div style={{ position: 'absolute', top: '-13px', left: '50%', transform: 'translateX(-50%)', background: '#2563eb', color: '#fff', fontSize: '0.68rem', fontWeight: 700, padding: '0.3rem 1rem', borderRadius: '100px', letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
+                    MOST POPULAR
+                  </div>
+                )}
+                <div style={{ fontWeight: 700, fontSize: '1rem', marginBottom: '0.5rem' }}>{p.name}</div>
+                <div style={{ fontSize: '2.75rem', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1, marginBottom: '0.25rem' }}>{p.price}</div>
+                <div style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)', marginBottom: '1.25rem' }}>one-time</div>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.5)', lineHeight: 1.6, marginBottom: '1.5rem' }}>{p.desc}</p>
+                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 2rem', display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                  {p.features.map(f => (
+                    <li key={f} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)' }}>
+                      <CheckIcon />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href={p.link}
+                  style={{ display: 'block', background: p.popular ? '#2563eb' : 'rgba(255,255,255,0.08)', color: '#fff', padding: '0.875rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 700, textAlign: 'center', fontSize: '0.9rem', letterSpacing: '-0.01em' }}
+                >
+                  {p.cta}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '5rem 0' }}>
+        <div style={{ ...s.container, maxWidth: '720px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+            <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.25em', textTransform: 'uppercase', marginBottom: '0.75rem', fontWeight: 700 }}>FAQ</div>
+            <h2 style={{ fontSize: 'clamp(1.75rem,3vw,2.5rem)', fontWeight: 700, letterSpacing: '-0.02em' }}>Common Questions</h2>
+          </div>
+          <div>
+            {FAQS.map(faq => <FaqItem key={faq.q} q={faq.q} a={faq.a} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section style={{ padding: '6rem 0', textAlign: 'center' }}>
+        <div style={s.container}>
+          <h2 style={{ fontSize: 'clamp(1.75rem,4vw,3rem)', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: 1.1, marginBottom: '1rem' }}>
+            One disputed job costs more than<br />10 years of protection.
+          </h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', marginBottom: '2.5rem', fontSize: '1rem' }}>
+            Get all 8 templates for a one-time payment. No subscriptions.
+          </p>
+          <a
+            href="https://buy.stripe.com/aFafZa6E15858tK1Ced3i02"
+            style={{ display: 'inline-block', background: '#2563eb', color: '#fff', padding: '1.1rem 3rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 700, fontSize: '1.1rem', boxShadow: '0 0 60px rgba(37,99,235,0.35)', letterSpacing: '-0.01em' }}
+          >
+            Get the Full Bundle — $97
+          </a>
+          <p style={{ marginTop: '1.25rem', color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem' }}>
+            Instant download · Unlimited use · 30-day guarantee
+          </p>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '2rem 0' }}>
+        <div style={{ ...s.container, textAlign: 'center' }}>
+          <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem', marginBottom: '0.5rem' }}>
+            &copy; 2026 ContractorDocuments.com &mdash; A Pearl Ventures Company
+          </p>
+          <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.78rem', display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="mailto:support@contractordocuments.com" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>support@contractordocuments.com</a>
+            <a href="/privacy" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>Privacy Policy</a>
+            <a href="/terms" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>Terms</a>
+          </p>
+        </div>
       </footer>
     </main>
   )
