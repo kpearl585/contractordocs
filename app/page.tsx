@@ -10,7 +10,7 @@ const PRODUCTS = [
     features: ['1 professional template', 'Instant PDF download', 'Editable Word version', 'Unlimited use license'],
     cta: 'Buy Single Doc',
     popular: false,
-    stripeLink: '#'
+    stripeLink: 'https://buy.stripe.com/aFa7sEgeB0RP11i2Gid3i00'
   },
   {
     id: 'bundle',
@@ -21,7 +21,7 @@ const PRODUCTS = [
     features: ['All 8 templates', 'Instant download', 'Editable Word + PDF', 'Unlimited use license', 'Free updates', 'Email support'],
     cta: 'Get Full Bundle',
     popular: true,
-    stripeLink: '#'
+    stripeLink: 'https://buy.stripe.com/7sY14g1jH441dO42Gid3i01'
   },
   {
     id: 'state',
@@ -32,7 +32,7 @@ const PRODUCTS = [
     features: ['All 8 templates', 'State law compliant', 'Attorney reviewed language', 'Instant download', 'Unlimited use license', 'Priority email support'],
     cta: 'Get State Package',
     popular: false,
-    stripeLink: '#'
+    stripeLink: 'https://buy.stripe.com/aFafZa6E15858tK1Ced3i02'
   }
 ]
 
@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <main style={{ background: '#0a0f1a', minHeight: '100vh', color: '#fff', fontFamily: 'system-ui, sans-serif' }}>
       <nav style={{ padding: '1.25rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(255,255,255,0.06)', maxWidth: '1200px', margin: '0 auto' }}>
-        <div style={{ fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>ContractorDocs<span style={{ color: '#2563eb' }}>.ai</span></div>
+        <div style={{ fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em' }}>ContractorDocuments<span style={{ color: '#2563eb' }}>.ai</span></div>
         <a href="#pricing" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1.25rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem' }}>Get Templates →</a>
       </nav>
 
@@ -89,7 +89,7 @@ export default function Home() {
             ))}
           </div>
           <p style={{ marginTop: '2.5rem', fontSize: '1.1rem', color: 'rgba(255,255,255,0.7)' }}>
-            One disputed job costs more than <strong style={{ color: '#fff' }}>10 years</strong> of ContractorDocs.ai.
+            One disputed job costs more than <strong style={{ color: '#fff' }}>10 years</strong> of ContractorDocuments.com.
           </p>
         </div>
       </section>
@@ -151,7 +151,7 @@ export default function Home() {
       </section>
 
       <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)', padding: '2rem', textAlign: 'center' }}>
-        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem' }}>© 2026 ContractorDocs.ai — A Pearl Ventures Company · <a href="mailto:support@contractordocs.ai" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}>support@contractordocs.ai</a></p>
+        <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem' }}>© 2026 ContractorDocuments.com — A Pearl Ventures Company · <a href="mailto:support@contractordocuments.com" style={{ color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}>support@contractordocuments.com</a></p>
       </footer>
     </main>
   )
