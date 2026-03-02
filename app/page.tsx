@@ -122,7 +122,7 @@ function PreviewModal({ doc, onClose }: { doc: typeof DOCUMENTS[0]; onClose: () 
       onClick={onClose}
     >
       <div
-        style={{ background: '#0f1729', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '1.5rem', maxWidth: '760px', width: '100%', maxHeight: '90vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
+        style={{ background: '#0f1729', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '1.5rem', width: '90vw', maxWidth: '900px', height: '85vh', overflow: 'auto', display: 'flex', flexDirection: 'column' }}
         onClick={(e) => e.stopPropagation()}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
@@ -139,7 +139,7 @@ function PreviewModal({ doc, onClose }: { doc: typeof DOCUMENTS[0]; onClose: () 
         </div>
         <iframe
           src={`/previews/${doc.slug}-preview.html`}
-          style={{ width: '100%', height: '520px', border: 'none', borderRadius: '8px', background: '#fff' }}
+          style={{ width: '100%', height: 'calc(85vh - 80px)', border: 'none', borderRadius: '8px', background: '#fff' }}
           title={`${doc.name} Preview`}
         />
         <p style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', textAlign: 'center' }}>
@@ -185,6 +185,14 @@ export default function Home() {
     <main style={s.page}>
       {previewDoc && <PreviewModal doc={previewDoc} onClose={() => setPreviewDoc(null)} />}
 
+      {/* Urgency Bar */}
+      <div style={{ background: '#1e3a5f', borderBottom: '1px solid rgba(37,99,235,0.3)', padding: '0.6rem 2rem', textAlign: 'center' }}>
+        <span style={{ fontSize: '0.8rem', color: '#93c5fd', letterSpacing: '0.02em' }}>
+          <strong style={{ color: '#fff' }}>Introductory Pricing:</strong> Full bundle $97 through March 2026 — increases to $147 on April 1st.{' '}
+          <a href="#pricing" style={{ color: '#60a5fa', textDecoration: 'underline', fontWeight: 600 }}>Lock in your price →</a>
+        </span>
+      </div>
+
       {/* NAV */}
       <nav style={{ borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '1.25rem 0' }}>
         <div style={{ ...s.container, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -227,7 +235,7 @@ export default function Home() {
               Download Free Sample
             </a>
           </div>
-          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>Trusted by contractors across the US · One-time payment · No subscription</p>
+          <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.8rem' }}>Attorney-reviewed documents · Instant download · One-time price</p>
         </div>
       </section>
 
@@ -268,6 +276,30 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Founder Story */}
+      <section style={{ maxWidth: '800px', margin: '0 auto', padding: '5rem 2rem', display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: 'linear-gradient(135deg, #1e3a5f, #2563eb)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '3px solid rgba(37,99,235,0.4)' }}>
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div style={{ flex: 1, minWidth: '280px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '100px', padding: '0.3rem 0.75rem' }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#c9a84c"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              <span style={{ fontSize: '0.7rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '0.08em' }}>U.S. ARMY VETERAN</span>
+            </div>
+            <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)' }}>Founder, Pearl Ventures</span>
+          </div>
+          <blockquote style={{ margin: 0, fontSize: '1.05rem', color: 'rgba(255,255,255,0.85)', lineHeight: 1.75, fontStyle: 'italic', borderLeft: '3px solid #2563eb', paddingLeft: '1.25rem' }}>
+            &ldquo;I watched skilled contractors lose tens of thousands of dollars — not because they did bad work, but because they had no paperwork. A disputed scope, a client who &apos;forgot&apos; what was agreed, a job that went sideways with no contract to back them up. I built ContractorDocuments to fix that. These are the documents every contractor should have had from day one.&rdquo;
+          </blockquote>
+          <div style={{ marginTop: '1rem', fontSize: '0.875rem', fontWeight: 700, color: '#fff' }}>Keegan Pearl</div>
+          <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)' }}>Founder · ContractorDocuments.com</div>
         </div>
       </section>
 
@@ -406,6 +438,19 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                {p.id === 'single' && (
+                  <select style={{ width: '100%', padding: '0.625rem', marginBottom: '0.75rem', border: '1px solid rgba(255,255,255,0.15)', borderRadius: '6px', background: 'rgba(255,255,255,0.05)', color: '#fff', fontSize: '0.85rem' }}>
+                    <option value="" style={{ background: '#0a0f1a' }}>Select a document...</option>
+                    <option value="estimate" style={{ background: '#0a0f1a' }}>Contractor Estimate Template</option>
+                    <option value="agreement" style={{ background: '#0a0f1a' }}>Service Agreement / Contract</option>
+                    <option value="change-order" style={{ background: '#0a0f1a' }}>Change Order Form</option>
+                    <option value="lien-conditional" style={{ background: '#0a0f1a' }}>Conditional Lien Waiver</option>
+                    <option value="lien-final" style={{ background: '#0a0f1a' }}>Final Lien Waiver</option>
+                    <option value="scope" style={{ background: '#0a0f1a' }}>Scope of Work</option>
+                    <option value="subcontractor" style={{ background: '#0a0f1a' }}>Subcontractor Agreement</option>
+                    <option value="warranty" style={{ background: '#0a0f1a' }}>Warranty Certificate</option>
+                  </select>
+                )}
                 <a
                   href={p.link}
                   style={{ display: 'block', background: p.popular ? '#2563eb' : 'rgba(255,255,255,0.08)', color: '#fff', padding: '0.875rem', borderRadius: '8px', textDecoration: 'none', fontWeight: 700, textAlign: 'center', fontSize: '0.9rem', letterSpacing: '-0.01em' }}
@@ -417,6 +462,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CREDIBILITY STRIP */}
+      <div style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '2.5rem 2rem' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', textAlign: 'center' }}>
+          {[
+            { stat: '$2,400', label: 'Avg cost of a scope dispute' },
+            { stat: '$800+', label: 'Typical attorney fee for basic docs' },
+            { stat: '8', label: 'Documents in the full bundle' },
+            { stat: '100%', label: 'Money-back guarantee' },
+          ].map(item => (
+            <div key={item.stat}>
+              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#fff', letterSpacing: '-0.03em' }}>{item.stat}</div>
+              <div style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)', marginTop: '0.25rem' }}>{item.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* FAQ */}
       <section style={{ background: 'rgba(255,255,255,0.02)', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)', padding: '5rem 0' }}>
