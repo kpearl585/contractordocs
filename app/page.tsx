@@ -10,7 +10,7 @@ const PRODUCTS = [
     features: ['1 professional template', 'Instant PDF download', 'Editable Word version', 'Unlimited use license'],
     cta: 'Buy Single Doc',
     popular: false,
-    stripeLink: 'https://buy.stripe.com/aFa7sEgeB0RP11i2Gid3i00'
+    stripeLink: 'https://buy.stripe.com/7sY14g1jH441dO42Gid3i01'
   },
   {
     id: 'bundle',
@@ -21,7 +21,7 @@ const PRODUCTS = [
     features: ['All 8 templates', 'Instant download', 'Editable Word + PDF', 'Unlimited use license', 'Free updates', 'Email support'],
     cta: 'Get Full Bundle',
     popular: true,
-    stripeLink: 'https://buy.stripe.com/7sY14g1jH441dO42Gid3i01'
+    stripeLink: 'https://buy.stripe.com/aFafZa6E15858tK1Ced3i02'
   },
   {
     id: 'state',
@@ -32,7 +32,7 @@ const PRODUCTS = [
     features: ['All 8 templates', 'State law compliant', 'Attorney reviewed language', 'Instant download', 'Unlimited use license', 'Priority email support'],
     cta: 'Get State Package',
     popular: false,
-    stripeLink: 'https://buy.stripe.com/aFafZa6E15858tK1Ced3i02'
+    stripeLink: 'https://buy.stripe.com/14AdR20fD1VT4dubcOd3i03'
   }
 ]
 
