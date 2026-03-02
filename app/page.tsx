@@ -540,6 +540,11 @@ export default function Home() {
           <p style={{ color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem', marginBottom: '0.5rem' }}>
             &copy; 2026 ContractorDocuments.com &mdash; A Pearl Ventures Company
           </p>
+          <p style={{ marginBottom: '0.75rem' }}>
+            <a href="https://fenceestimatepro.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: '0.78rem', color: 'rgba(255,255,255,0.35)', textDecoration: 'none' }}>
+              Fence contractor? Try <span style={{ color: '#60a5fa' }}>FenceEstimatePro</span> — build estimates in 5 min, track jobs, protect your margin.
+            </a>
+          </p>
           <p style={{ color: 'rgba(255,255,255,0.2)', fontSize: '0.78rem', display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="mailto:support@contractordocuments.com" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>support@contractordocuments.com</a>
             <a href="/privacy" style={{ color: 'rgba(255,255,255,0.3)', textDecoration: 'none' }}>Privacy Policy</a>
