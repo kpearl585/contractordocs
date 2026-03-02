@@ -1,0 +1,73 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+  body { font-family: Georgia, serif; max-width: 680px; margin: 0 auto; padding: 3rem 2.5rem; color: #1a1a1a; background: #fff; font-size: 13px; line-height: 1.7; }
+  .header { text-align: center; border-bottom: 2px solid #1a1a1a; padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .company-name { font-size: 22px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; }
+  .doc-title { font-size: 16px; font-weight: bold; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; color: #333; }
+  .doc-number { font-size: 11px; color: #666; margin-top: 0.25rem; }
+  .section-title { font-weight: bold; text-transform: uppercase; font-size: 11px; letter-spacing: 0.08em; margin-top: 1.75rem; margin-bottom: 0.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.25rem; color: #333; }
+  .field-row { display: flex; gap: 2rem; margin-bottom: 0.75rem; }
+  .field { flex: 1; }
+  .field-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #888; margin-bottom: 0.2rem; }
+  .field-value { border-bottom: 1px solid #bbb; min-height: 1.4rem; padding-bottom: 0.1rem; font-size: 12px; color: #2563eb; font-style: italic; }
+  .clause { margin-bottom: 1rem; }
+  .clause-num { font-weight: bold; }
+  .signature-block { margin-top: 3rem; display: flex; gap: 3rem; }
+  .sig-col { flex: 1; }
+  .sig-line { border-bottom: 1px solid #333; margin-bottom: 0.3rem; height: 2rem; }
+  .sig-label { font-size: 10px; color: #666; text-transform: uppercase; letter-spacing: 0.05em; }
+  .watermark { position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-35deg); font-size: 72px; color: rgba(37,99,235,0.06); font-weight: 900; pointer-events: none; white-space: nowrap; letter-spacing: 0.1em; }
+  .preview-badge { position: fixed; top: 1rem; right: 1rem; background: #2563eb; color: white; font-size: 10px; font-weight: 700; padding: 0.35rem 0.75rem; border-radius: 4px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .line-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 12px; }
+  .line-table th { text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; color: #888; border-bottom: 1px solid #ddd; padding: 0.3rem 0.5rem 0.3rem 0; }
+  .line-table td { padding: 0.45rem 0.5rem 0.45rem 0; border-bottom: 1px solid #f0f0f0; color: #2563eb; font-style: italic; }
+  .line-table .amt { text-align: right; }
+  .totals-box { width: 260px; margin-left: auto; margin-top: 1rem; }
+  .totals-line { display: flex; justify-content: space-between; padding: 0.3rem 0; border-bottom: 1px solid #f0f0f0; font-size: 12px; }
+  .totals-line.final { font-weight: bold; border-bottom: 2px solid #1a1a1a; border-top: 2px solid #1a1a1a; padding: 0.5rem 0; }
+  .notice { background: #fffbeb; border: 1px solid #f59e0b; border-radius: 4px; padding: 0.75rem 1rem; font-size: 11.5px; color: #92400e; margin-top: 1.25rem; }
+  .seal-box { border: 2px solid #1a1a1a; padding: 1.25rem; border-radius: 4px; margin-top: 1rem; font-size: 11.5px; }
+</style></head><body><div class="watermark">SAMPLE</div><div class="preview-badge">PREVIEW</div>
+<div class="header">
+  <div class="company-name">[Your Company Name]</div>
+  <div class="doc-title">Scope of Work Document</div>
+  <div class="doc-number">Job No. _______ &nbsp;|&nbsp; Date: _____________ &nbsp;|&nbsp; Version: 1.0</div>
+</div>
+<div class="section-title">Project Information</div>
+<div class="field-row">
+  <div class="field"><div class="field-label">Project Name</div><div class="field-value">[Project Name / Description]</div></div>
+  <div class="field"><div class="field-label">Client Name</div><div class="field-value">[Client Full Name]</div></div>
+</div>
+<div class="field-row">
+  <div class="field"><div class="field-label">Project / Job Site Address</div><div class="field-value">[Full Property Address]</div></div>
+  <div class="field"><div class="field-label">Date Prepared</div><div class="field-value">[Date]</div></div>
+</div>
+<div class="section-title">1. Work Included</div>
+<div class="clause">The following work is included in this contract:</div>
+<div style="padding-left:1.5rem;color:#2563eb;font-style:italic;font-size:12px;line-height:2;">
+  &bull; [Line item — specific task, material, or service]<br>
+  &bull; [Line item — specific task, material, or service]<br>
+  &bull; [Line item — specific task, material, or service]<br>
+  &bull; [Line item — specific task, material, or service]
+</div>
+<div class="section-title">2. Work NOT Included</div>
+<div class="clause">The following work is expressly <strong>excluded</strong> from this contract and will require a separate agreement or change order if desired:</div>
+<div style="padding-left:1.5rem;color:#ef4444;font-style:italic;font-size:12px;line-height:2;">
+  &bull; [Excluded item — e.g., painting, landscaping, permits unless noted]<br>
+  &bull; [Excluded item]<br>
+  &bull; [Excluded item]
+</div>
+<div class="section-title">3. Materials &amp; Specifications</div>
+<div style="border:1px solid #ddd;border-radius:3px;padding:0.75rem;margin-bottom:1rem;font-size:12px;color:#2563eb;font-style:italic;min-height:70px;">[Specify materials by brand, grade, model, color, or other applicable specification. All materials provided by Contractor unless noted otherwise.]</div>
+<div class="section-title">4. Access &amp; Site Conditions</div>
+<div class="clause">Client agrees to provide Contractor with reasonable access to the property, including utilities (water, power), clear access routes, and removal of any personal property from the work area prior to commencement.</div>
+<div class="section-title">5. Schedule</div>
+<div class="field-row">
+  <div class="field"><div class="field-label">Proposed Start Date</div><div class="field-value">[Start Date]</div></div>
+  <div class="field"><div class="field-label">Estimated Duration</div><div class="field-value">[__ Working Days / Weeks]</div></div>
+  <div class="field"><div class="field-label">Estimated Completion</div><div class="field-value">[Completion Date]</div></div>
+</div>
+<div class="signature-block">
+  <div class="sig-col"><div class="sig-line"></div><div class="sig-label">Contractor Signature &amp; Date</div></div>
+  <div class="sig-col"><div class="sig-line"></div><div class="sig-label">Client Signature &amp; Date</div></div>
+</div>
+</body></html>

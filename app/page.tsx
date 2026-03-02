@@ -34,14 +34,14 @@ const ChevronIcon = ({ open }: { open: boolean }) => (
 )
 
 const DOCUMENTS = [
-  { name: 'Contractor Estimate Template', desc: 'Professional quote with scope, materials, labor breakdown and payment terms', file: 'contractor-estimate-template.txt' },
-  { name: 'Service Agreement / Contract', desc: 'Protect yourself legally on every job with a signed contract', file: 'contractor-agreement.txt' },
-  { name: 'Change Order Form', desc: 'Document every change to avoid disputes and get paid for extras', file: 'change-order-form.txt' },
-  { name: 'Conditional Lien Waiver', desc: 'Required for progress payments in most states', file: 'lien-waiver-conditional.txt' },
-  { name: 'Final Lien Waiver', desc: 'Close out jobs cleanly and protect your clients', file: 'lien-waiver-final.txt' },
-  { name: 'Scope of Work', desc: "Define exactly what is and isn't included in every job", file: 'scope-of-work.txt' },
-  { name: 'Subcontractor Agreement', desc: 'Hire subs legally with clear terms and liability protection', file: 'subcontractor-agreement.txt' },
-  { name: 'Warranty Certificate', desc: 'Professional warranty documentation that builds trust', file: 'warranty-certificate.txt' },
+  { name: 'Contractor Estimate Template', desc: 'Professional quote with scope, materials, labor breakdown and payment terms', file: 'contractor-estimate-template.txt', slug: 'contractor-estimate' },
+  { name: 'Service Agreement / Contract', desc: 'Protect yourself legally on every job with a signed contract', file: 'contractor-agreement.txt', slug: 'contractor-agreement' },
+  { name: 'Change Order Form', desc: 'Document every change to avoid disputes and get paid for extras', file: 'change-order-form.txt', slug: 'change-order' },
+  { name: 'Conditional Lien Waiver', desc: 'Required for progress payments in most states', file: 'lien-waiver-conditional.txt', slug: 'lien-waiver-conditional' },
+  { name: 'Final Lien Waiver', desc: 'Close out jobs cleanly and protect your clients', file: 'lien-waiver-final.txt', slug: 'lien-waiver-final' },
+  { name: 'Scope of Work', desc: "Define exactly what is and isn't included in every job", file: 'scope-of-work.txt', slug: 'scope-of-work' },
+  { name: 'Subcontractor Agreement', desc: 'Hire subs legally with clear terms and liability protection', file: 'subcontractor-agreement.txt', slug: 'subcontractor-agreement' },
+  { name: 'Warranty Certificate', desc: 'Professional warranty documentation that builds trust', file: 'warranty-certificate.txt', slug: 'warranty-certificate' },
 ]
 
 const PREVIEWS: Record<string, string> = {
@@ -122,10 +122,10 @@ function PreviewModal({ doc, onClose }: { doc: typeof DOCUMENTS[0]; onClose: () 
       onClick={onClose}
     >
       <div
-        style={{ background: '#0f1729', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '2rem', maxWidth: '640px', width: '100%', maxHeight: '80vh', overflow: 'auto' }}
+        style={{ background: '#0f1729', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '12px', padding: '1.5rem', maxWidth: '760px', width: '100%', maxHeight: '90vh', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <div>
             <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '0.25rem' }}>Document Preview</div>
             <div style={{ fontWeight: 700, fontSize: '1rem' }}>{doc.name}</div>
@@ -137,11 +137,13 @@ function PreviewModal({ doc, onClose }: { doc: typeof DOCUMENTS[0]; onClose: () 
             Close
           </button>
         </div>
-        <pre style={{ fontFamily: 'monospace', fontSize: '0.75rem', color: 'rgba(255,255,255,0.65)', background: 'rgba(0,0,0,0.3)', borderRadius: '8px', padding: '1.25rem', overflowX: 'auto', whiteSpace: 'pre-wrap', lineHeight: 1.6 }}>
-          {PREVIEWS[doc.file] || 'Preview not available.'}
-        </pre>
-        <p style={{ marginTop: '1rem', fontSize: '0.8rem', color: 'rgba(255,255,255,0.3)', textAlign: 'center' }}>
-          First page preview. Full document included in your purchase.
+        <iframe
+          src={`/previews/${doc.slug}-preview.html`}
+          style={{ width: '100%', height: '520px', border: 'none', borderRadius: '8px', background: '#fff' }}
+          title={`${doc.name} Preview`}
+        />
+        <p style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)', textAlign: 'center' }}>
+          Sample preview. Full editable document included in your purchase.
         </p>
       </div>
     </div>
