@@ -213,7 +213,8 @@ export default function Home() {
           <div style={{ fontWeight: 800, fontSize: '1.15rem', letterSpacing: '-0.02em' }}>
             ContractorDocuments<span style={{ color: '#2563eb' }}>.com</span>
           </div>
-          <a
+          <a href="/blog" style={{ color: 'rgba(255,255,255,0.6)', textDecoration: 'none', fontSize: '0.875rem', fontWeight: 500 }}>Resources</a>
+            <a
             href="#pricing"
             style={{ background: '#2563eb', color: '#fff', padding: '0.55rem 1.25rem', borderRadius: '6px', textDecoration: 'none', fontWeight: 600, fontSize: '0.875rem', letterSpacing: '-0.01em' }}
           >
