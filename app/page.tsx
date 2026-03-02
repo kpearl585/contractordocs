@@ -302,7 +302,7 @@ export default function Home() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: 'rgba(201,168,76,0.1)', border: '1px solid rgba(201,168,76,0.3)', borderRadius: '100px', padding: '0.3rem 0.75rem' }}>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="#c9a84c"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              <span style={{ fontSize: '0.7rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '0.08em' }}>U.S. ARMY VETERAN</span>
+              <span style={{ fontSize: '0.7rem', color: '#c9a84c', fontWeight: 700, letterSpacing: '0.08em' }}>U.S. NAVY VETERAN</span>
             </div>
             <span style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)' }}>Founder, Pearl Ventures</span>
           </div>
