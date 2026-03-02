@@ -1,0 +1,161 @@
+================================================================================
+                             CHANGE ORDER FORM
+================================================================================
+
+CHANGE ORDER #:   [CO-NUMBER — e.g., CO-001]
+DATE:             [DATE]
+PROJECT:          [PROJECT NAME / ADDRESS]
+
+CONTRACTOR:
+  Company Name:   [YOUR COMPANY NAME]
+  License #:      [LICENSE NUMBER]
+  Phone:          [PHONE]
+  Email:          [EMAIL]
+
+CLIENT:
+  Name:           [CLIENT FULL NAME]
+  Phone:          [CLIENT PHONE]
+  Email:          [CLIENT EMAIL]
+
+ORIGINAL CONTRACT DATE:     [ORIGINAL CONTRACT DATE]
+ORIGINAL CONTRACT AMOUNT:   $[ORIGINAL AMOUNT]
+
+================================================================================
+                          REASON FOR CHANGE ORDER
+================================================================================
+
+[ ] Client Request
+[ ] Unforeseen Site Condition
+[ ] Design Change
+[ ] Code Requirement
+[ ] Material Substitution
+[ ] Other: ___________________________________
+
+Description of Reason:
+[Explain clearly why this change is needed. If due to unforeseen conditions,
+describe what was discovered and when. If a client request, note when and
+how the request was made.]
+
+================================================================================
+                         ORIGINAL SCOPE OF WORK
+================================================================================
+
+The original contract included the following scope relevant to this change:
+
+[Describe the specific portion of the original scope that is being changed,
+deleted, or added to. Reference the original contract section if applicable.]
+
+================================================================================
+                     REVISED / ADDITIONAL SCOPE OF WORK
+================================================================================
+
+The following work is being ADDED to the scope:
+  1. [DESCRIPTION OF ADDED WORK ITEM 1]
+  2. [DESCRIPTION OF ADDED WORK ITEM 2]
+  3. [DESCRIPTION OF ADDED WORK ITEM 3]
+
+The following work is being DELETED from the scope:
+  1. [DESCRIPTION OF DELETED WORK ITEM 1]
+  2. [DESCRIPTION OF DELETED WORK ITEM 2]
+
+The following work is being MODIFIED:
+  Original: [DESCRIBE ORIGINAL WORK]
+  Modified: [DESCRIBE HOW IT CHANGES]
+
+================================================================================
+                          COST ADJUSTMENT
+================================================================================
+
+ADDED COSTS:
+  Labor:                                              $[AMOUNT]
+  Materials:                                          $[AMOUNT]
+  Equipment / Rental:                                 $[AMOUNT]
+  Subcontractors:                                     $[AMOUNT]
+  Other: _______________________________              $[AMOUNT]
+  ─────────────────────────────────────────────────────────────
+  Total Added Cost:                                   $[AMOUNT]
+
+DELETED COSTS (CREDIT):
+  Labor Credit:                                      ($[AMOUNT])
+  Materials Credit:                                  ($[AMOUNT])
+  ─────────────────────────────────────────────────────────────
+  Total Credit:                                      ($[AMOUNT])
+
+  ─────────────────────────────────────────────────────────────
+  NET CHANGE ORDER AMOUNT:              [ADD / DEDUCT]  $[AMOUNT]
+
+================================================================================
+                         CONTRACT PRICE SUMMARY
+================================================================================
+
+  Original Contract Price:                            $[AMOUNT]
+  Previous Change Orders (CO-001 through CO-[X]):    +$[AMOUNT]
+  This Change Order ([CO-NUMBER]):                   +$[AMOUNT]
+  ─────────────────────────────────────────────────────────────
+  REVISED CONTRACT TOTAL:                             $[AMOUNT]
+
+================================================================================
+                         SCHEDULE ADJUSTMENT
+================================================================================
+
+  [ ] No change to project schedule.
+  [ ] Project schedule is extended by [X] calendar days.
+  [ ] Project schedule is reduced by [X] calendar days.
+
+  Original Completion Date:            [DATE]
+  Revised Completion Date:             [DATE]
+
+  Reason for Schedule Change:
+  [Explain why the timeline is impacted, if applicable.]
+
+================================================================================
+                         PAYMENT TERMS
+================================================================================
+
+Payment for this Change Order is due as follows:
+
+  [ ] Upon completion of the change order work.
+  [ ] Added to next scheduled progress payment.
+  [ ] Deposit of $[AMOUNT] due within [3] days of signing;
+      balance due upon completion of change order work.
+
+================================================================================
+                         TERMS AND CONDITIONS
+================================================================================
+
+1. This Change Order is incorporated into and made a part of the original
+   Service Agreement between Contractor and Client dated [ORIGINAL DATE].
+
+2. All terms and conditions of the original Agreement remain in full force
+   and effect except as modified herein.
+
+3. By signing, Client authorizes Contractor to proceed with the work
+   described in this Change Order.
+
+4. Work described herein will not begin until this Change Order is signed
+   by both parties.
+
+5. Failure to sign this Change Order while requesting the described work
+   verbally does not constitute authorization. Contractor reserves the right
+   to decline unapproved work.
+
+================================================================================
+                              SIGNATURES
+================================================================================
+
+CONTRACTOR:
+
+Signature: _______________________________ Date: _______________
+Printed Name: [YOUR NAME]
+Title: [OWNER / AUTHORIZED REPRESENTATIVE]
+
+
+CLIENT:
+
+Signature: _______________________________ Date: _______________
+Printed Name: _____________________________________
+
+================================================================================
+                    ContractorDocs.ai — A Pearl Ventures Company
+              Professional Templates. Protect Your Business. Get Paid.
+================================================================================

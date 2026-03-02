@@ -1,0 +1,181 @@
+================================================================================
+                         SCOPE OF WORK DOCUMENT
+================================================================================
+
+PROJECT INFORMATION
+-------------------
+Project Name:       [PROJECT NAME]
+Job Number:         [JOB NUMBER]
+Date Prepared:      [DATE]
+Version:            [1.0]
+
+CONTRACTOR:
+  Company Name:     [YOUR COMPANY NAME]
+  License #:        [LICENSE NUMBER]
+  Address:          [ADDRESS], [CITY], [STATE] [ZIP]
+  Phone:            [PHONE] | Email: [EMAIL]
+
+CLIENT:
+  Name:             [CLIENT FULL NAME]
+  Address:          [CLIENT ADDRESS]
+  Phone:            [CLIENT PHONE] | Email: [CLIENT EMAIL]
+
+PROPERTY:
+  Address:          [JOB SITE ADDRESS], [CITY], [STATE] [ZIP]
+  Property Type:    [ ] Residential  [ ] Commercial  [ ] Industrial
+  Year Built:       [YEAR]
+
+================================================================================
+1. PROJECT OVERVIEW
+================================================================================
+
+1.1 Project Description:
+[Provide a 2-4 sentence summary of the project. What is being built, renovated,
+repaired, or installed? What is the purpose of the project?]
+
+1.2 Project Objectives:
+  - [OBJECTIVE 1 — e.g., Replace aging HVAC system]
+  - [OBJECTIVE 2 — e.g., Improve energy efficiency]
+  - [OBJECTIVE 3 — e.g., Meet current building code requirements]
+
+1.3 Project Location / Area:
+[Specify the exact location on the property where work will occur. Be specific:
+"North-facing exterior wall from ground level to second floor" or
+"Kitchen and master bath on first floor."]
+
+================================================================================
+2. DETAILED SCOPE OF WORK
+================================================================================
+
+2.1 PHASE 1: PREPARATION / DEMOLITION
+  [ ] [PREP TASK 1 — e.g., Protect existing flooring with drop cloths]
+  [ ] [PREP TASK 2 — e.g., Disconnect and cap existing plumbing at shutoff]
+  [ ] [PREP TASK 3 — e.g., Remove existing [material] and dispose of off-site]
+  [ ] [PREP TASK 4 — e.g., Mark and protect underground utilities]
+  [ ] [PREP TASK 5]
+
+2.2 PHASE 2: ROUGH WORK / STRUCTURAL
+  [ ] [ROUGH TASK 1 — e.g., Install new framing per approved plans]
+  [ ] [ROUGH TASK 2 — e.g., Run new electrical conduit to panel]
+  [ ] [ROUGH TASK 3 — e.g., Install rough plumbing for new bathroom fixtures]
+  [ ] [ROUGH TASK 4]
+  [ ] [ROUGH TASK 5]
+
+2.3 PHASE 3: CORE INSTALLATION
+  [ ] [INSTALL TASK 1 — e.g., Install [product name/model] per manufacturer specs]
+  [ ] [INSTALL TASK 2]
+  [ ] [INSTALL TASK 3]
+  [ ] [INSTALL TASK 4]
+  [ ] [INSTALL TASK 5]
+  [ ] [INSTALL TASK 6]
+
+2.4 PHASE 4: FINISHING
+  [ ] [FINISH TASK 1 — e.g., Patch and paint disturbed areas to match existing]
+  [ ] [FINISH TASK 2 — e.g., Install trim and hardware]
+  [ ] [FINISH TASK 3 — e.g., Caulk and seal all penetrations]
+  [ ] [FINISH TASK 4]
+
+2.5 PHASE 5: CLEANUP AND CLOSEOUT
+  [ ] Remove all debris and construction waste from site
+  [ ] Clean all work areas
+  [ ] Touch up any incidental damage
+  [ ] Conduct final walkthrough with client
+  [ ] Provide all warranties, manuals, and as-built documentation
+
+================================================================================
+3. MATERIALS AND SPECIFICATIONS
+================================================================================
+
+All materials shall conform to the following specifications:
+
+Item          Description                    Brand/Model       Spec / Standard
+------------------------------------------------------------------------
+[ITEM 1]      [DESCRIPTION]                 [BRAND/MODEL]     [SPEC]
+[ITEM 2]      [DESCRIPTION]                 [BRAND/MODEL]     [SPEC]
+[ITEM 3]      [DESCRIPTION]                 [BRAND/MODEL]     [SPEC]
+[ITEM 4]      [DESCRIPTION]                 [BRAND/MODEL]     [SPEC]
+[ITEM 5]      [DESCRIPTION]                 [BRAND/MODEL]     [SPEC]
+
+Material substitutions require written approval from Client prior to procurement.
+
+================================================================================
+4. INCLUSIONS — WHAT IS COVERED
+================================================================================
+
+The following are EXPLICITLY INCLUDED in this scope:
+
+  ✓ [INCLUSION 1 — be specific]
+  ✓ [INCLUSION 2]
+  ✓ [INCLUSION 3]
+  ✓ [INCLUSION 4]
+  ✓ [INCLUSION 5]
+  ✓ All materials listed in Section 3
+  ✓ All permits and inspections [if applicable]
+  ✓ Cleanup and debris removal
+  ✓ [X]-year labor warranty (see Section 7)
+
+================================================================================
+5. EXCLUSIONS — WHAT IS NOT COVERED
+================================================================================
+
+The following are EXPLICITLY EXCLUDED from this scope unless added via
+written Change Order:
+
+  ✗ [EXCLUSION 1 — e.g., Interior painting beyond patched areas]
+  ✗ [EXCLUSION 2 — e.g., Landscaping or exterior grade work]
+  ✗ [EXCLUSION 3 — e.g., Repairs to pre-existing damage discovered during work]
+  ✗ [EXCLUSION 4 — e.g., Asbestos or hazardous material abatement]
+  ✗ [EXCLUSION 5 — e.g., Work on adjacent structures]
+  ✗ Appliance connections (unless noted)
+  ✗ Furnishings or personal property
+  ✗ Work on systems or areas not described above
+
+================================================================================
+6. ASSUMPTIONS AND CONDITIONS
+================================================================================
+
+This scope of work is based on the following assumptions:
+
+  1. [ASSUMPTION 1 — e.g., Existing structural elements are sound and code-compliant]
+  2. [ASSUMPTION 2 — e.g., Utility locations are as marked / disclosed]
+  3. [ASSUMPTION 3 — e.g., No hazardous materials are present]
+  4. [ASSUMPTION 4 — e.g., Client will provide access daily from 7am to 5pm]
+  5. [ASSUMPTION 5 — e.g., Materials will be delivered to site at no additional charge]
+
+If any assumption proves incorrect, Contractor reserves the right to issue
+a Change Order for additional work required as a result.
+
+================================================================================
+7. QUALITY STANDARDS AND ACCEPTANCE CRITERIA
+================================================================================
+
+Work shall be performed in accordance with:
+  [ ] [STATE] Building Code, [YEAR] Edition
+  [ ] IBC / IRC [YEAR]
+  [ ] [RELEVANT TRADE STANDARD — e.g., NFPA 70 for electrical]
+  [ ] Manufacturer installation instructions
+  [ ] Industry best practices
+
+Acceptance Criteria:
+  - All work passes required inspections
+  - [SPECIFIC ACCEPTANCE CRITERION 1]
+  - [SPECIFIC ACCEPTANCE CRITERION 2]
+  - Final walkthrough sign-off by Client
+
+================================================================================
+                          CLIENT ACKNOWLEDGMENT
+================================================================================
+
+By signing below, Client confirms they have read and understood this Scope
+of Work and agree it accurately represents the Work to be performed.
+
+Client Signature: _____________________________ Date: ________________
+Printed Name: _________________________________
+
+Contractor Signature: _________________________ Date: ________________
+Printed Name: _________________________________
+
+================================================================================
+                    ContractorDocs.ai — A Pearl Ventures Company
+              Professional Templates. Protect Your Business. Get Paid.
+================================================================================

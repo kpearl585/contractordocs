@@ -1,0 +1,182 @@
+================================================================================
+                          CONTRACTOR ESTIMATE / PROPOSAL
+================================================================================
+
+CONTRACTOR INFORMATION
+----------------------
+Company Name:     [YOUR COMPANY NAME]
+License Number:   [LICENSE NUMBER]
+Address:          [ADDRESS], [CITY], [STATE] [ZIP]
+Phone:            [PHONE NUMBER]
+Email:            [EMAIL ADDRESS]
+Website:          [WEBSITE]
+
+ESTIMATE DATE:    [DATE]
+ESTIMATE #:       [ESTIMATE NUMBER]
+VALID THROUGH:    [EXPIRATION DATE — typically 30 days]
+
+CLIENT INFORMATION
+------------------
+Client Name:      [CLIENT FULL NAME]
+Property Address: [JOB SITE ADDRESS]
+City/State/Zip:   [CITY], [STATE] [ZIP]
+Phone:            [CLIENT PHONE]
+Email:            [CLIENT EMAIL]
+
+================================================================================
+                              SCOPE OF WORK
+================================================================================
+
+Project Description:
+[Provide a detailed description of the project. Be specific about what work will
+be performed, what areas will be affected, and what the final result will look like.]
+
+Location of Work:
+[Specify exactly where on the property the work will be performed.]
+
+Work Inclusions:
+The following work is INCLUDED in this estimate:
+  1. [DESCRIPTION OF WORK ITEM 1]
+  2. [DESCRIPTION OF WORK ITEM 2]
+  3. [DESCRIPTION OF WORK ITEM 3]
+  4. [DESCRIPTION OF WORK ITEM 4]
+  5. [DESCRIPTION OF WORK ITEM 5]
+
+Work Exclusions:
+The following is NOT included in this estimate:
+  - [EXCLUSION 1 — e.g., permit fees]
+  - [EXCLUSION 2 — e.g., unforeseen structural repairs]
+  - [EXCLUSION 3 — e.g., interior finishes unless specified]
+  - Any work not explicitly listed above
+
+================================================================================
+                              MATERIALS
+================================================================================
+
+Item #  Description                          Qty    Unit    Unit Cost    Total
+------------------------------------------------------------------------
+1.      [MATERIAL DESCRIPTION]               [QTY]  [UNIT]  $[PRICE]    $[TOTAL]
+2.      [MATERIAL DESCRIPTION]               [QTY]  [UNIT]  $[PRICE]    $[TOTAL]
+3.      [MATERIAL DESCRIPTION]               [QTY]  [UNIT]  $[PRICE]    $[TOTAL]
+4.      [MATERIAL DESCRIPTION]               [QTY]  [UNIT]  $[PRICE]    $[TOTAL]
+5.      [MATERIAL DESCRIPTION]               [QTY]  [UNIT]  $[PRICE]    $[TOTAL]
+6.      [MATERIAL DESCRIPTION]               [QTY]  [UNIT]  $[PRICE]    $[TOTAL]
+------------------------------------------------------------------------
+                                              MATERIALS SUBTOTAL:     $[TOTAL]
+
+================================================================================
+                                LABOR
+================================================================================
+
+Description                                  Hours    Rate/Hr      Total
+------------------------------------------------------------------------
+[TRADE / TASK DESCRIPTION]                   [HRS]    $[RATE]     $[TOTAL]
+[TRADE / TASK DESCRIPTION]                   [HRS]    $[RATE]     $[TOTAL]
+[TRADE / TASK DESCRIPTION]                   [HRS]    $[RATE]     $[TOTAL]
+------------------------------------------------------------------------
+                                              LABOR SUBTOTAL:      $[TOTAL]
+
+================================================================================
+                              COST SUMMARY
+================================================================================
+
+Materials:                                                         $[AMOUNT]
+Labor:                                                             $[AMOUNT]
+Equipment / Rental:                                                $[AMOUNT]
+Subcontractors:                                                    $[AMOUNT]
+Permits & Fees:                                                    $[AMOUNT]
+                                              ─────────────────────────────
+                                              SUBTOTAL:            $[AMOUNT]
+                                              Tax ([X]%):          $[AMOUNT]
+                                              ─────────────────────────────
+                                              TOTAL ESTIMATE:      $[AMOUNT]
+
+================================================================================
+                            PAYMENT SCHEDULE
+================================================================================
+
+  [ ] Option A — Fixed Price Contract
+      Deposit (Due at signing):       [X]%     $[AMOUNT]
+      Progress Payment (Midpoint):    [X]%     $[AMOUNT]
+      Final Payment (Upon Completion):[X]%     $[AMOUNT]
+
+  [ ] Option B — Time & Materials
+      Invoiced weekly based on hours worked and materials purchased.
+      Markup on materials: [X]%
+
+Payment Method Accepted: [ ] Check  [ ] ACH/Bank Transfer  [ ] Credit Card
+                         [ ] Zelle  [ ] Venmo Business
+
+Late Payment: Invoices unpaid after [15/30] days are subject to a [1.5]% per
+month late fee.
+
+================================================================================
+                              PROJECT TIMELINE
+================================================================================
+
+Estimated Start Date:       [DATE]
+Estimated Completion Date:  [DATE]
+Total Estimated Duration:   [X] Days / Weeks
+
+Note: Timeline is contingent on weather, permit approvals, material availability,
+and client providing timely access to the work site.
+
+================================================================================
+                          TERMS AND CONDITIONS
+================================================================================
+
+1. ACCEPTANCE: This estimate is valid for [30] days from the date above.
+   Acceptance is confirmed by client signature below or written authorization.
+
+2. CHANGES: Any changes to the scope of work must be documented via a signed
+   Change Order Form before additional work begins. Verbal authorizations are
+   not binding.
+
+3. PERMITS: [Contractor/Client] is responsible for obtaining required permits.
+   Work will not begin until permits are in hand unless client waives this
+   requirement in writing.
+
+4. INSURANCE: [YOUR COMPANY NAME] carries general liability insurance
+   ($[AMOUNT] per occurrence) and workers' compensation insurance.
+   Certificate available upon request.
+
+5. MATERIALS: Contractor reserves the right to substitute materials of equal
+   or greater quality if specified materials are unavailable.
+
+6. CLEANUP: Contractor will remove all job-related debris from the work area
+   upon completion. [Exception: haul-away fees may apply for large volumes.]
+
+7. WARRANTY: Labor is warranted for [1 year] from the date of completion.
+   Manufacturer warranties apply to all materials.
+
+8. DISPUTES: In the event of a dispute, parties agree to attempt mediation
+   before pursuing litigation. Prevailing party is entitled to reasonable
+   attorney fees.
+
+9. GOVERNING LAW: This agreement is governed by the laws of the State of
+   [STATE].
+
+================================================================================
+                              ACCEPTANCE
+================================================================================
+
+By signing below, client acknowledges acceptance of this estimate and agrees
+to the terms and conditions stated herein.
+
+CONTRACTOR:
+
+Signature: _______________________________ Date: _______________
+Name: [YOUR NAME]
+Title: [TITLE]
+
+
+CLIENT:
+
+Signature: _______________________________ Date: _______________
+Name: _____________________________________
+Title: ___________________________________
+
+================================================================================
+                    ContractorDocs.ai — A Pearl Ventures Company
+              Professional Templates. Protect Your Business. Get Paid.
+================================================================================

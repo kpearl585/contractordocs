@@ -1,0 +1,187 @@
+================================================================================
+                         WARRANTY CERTIFICATE
+================================================================================
+
+                    ★ CERTIFICATE OF LIMITED WARRANTY ★
+
+================================================================================
+
+CONTRACTOR:
+  Company Name:     [YOUR COMPANY NAME]
+  License Number:   [LICENSE NUMBER]
+  Address:          [ADDRESS], [CITY], [STATE] [ZIP]
+  Phone:            [PHONE NUMBER]
+  Email:            [EMAIL ADDRESS]
+  Website:          [WEBSITE]
+
+CERTIFICATE NUMBER:   [CERT-NUMBER — e.g., WC-2024-001]
+DATE OF ISSUE:        [DATE]
+
+================================================================================
+                          PROJECT INFORMATION
+================================================================================
+
+  Client Name:          [CLIENT FULL NAME]
+  Property Address:     [PROPERTY ADDRESS], [CITY], [STATE] [ZIP]
+  Project Description:  [BRIEF DESCRIPTION OF WORK PERFORMED]
+  Date Work Commenced:  [START DATE]
+  Date of Completion:   [COMPLETION DATE]
+  Contract Amount:      $[CONTRACT AMOUNT]
+
+================================================================================
+                          WARRANTY COVERAGE
+================================================================================
+
+[YOUR COMPANY NAME] ("Contractor") hereby warrants to [CLIENT NAME] ("Client")
+the labor and workmanship performed in connection with the above-described
+project as follows:
+
+--------------------------------------------------------------------------------
+LABOR WARRANTY
+--------------------------------------------------------------------------------
+
+  Coverage Period:  [ONE (1) YEAR] from the Date of Completion above
+                    (Warranty Expiration: [EXPIRATION DATE])
+
+  Contractor warrants that all work performed under the above contract was
+  completed in a good and workmanlike manner, free from defects in workmanship,
+  and in substantial conformance with the agreed-upon plans and specifications.
+
+  During the warranty period, Contractor shall, at no charge to Client, repair
+  or correct any defects in workmanship that become apparent and are reported
+  to Contractor within the warranty period.
+
+--------------------------------------------------------------------------------
+MATERIALS WARRANTY
+--------------------------------------------------------------------------------
+
+  Materials and products installed under this contract are covered by their
+  respective manufacturer warranties. Contractor will assist Client in asserting
+  valid manufacturer warranty claims when possible.
+
+  Key product warranties associated with this project:
+
+  Product / System         Manufacturer        Warranty Period   Warranty Type
+  ─────────────────────────────────────────────────────────────────────────────
+  [PRODUCT/SYSTEM 1]      [MANUFACTURER]      [X YEARS]         [PARTS/LABOR]
+  [PRODUCT/SYSTEM 2]      [MANUFACTURER]      [X YEARS]         [PARTS/LABOR]
+  [PRODUCT/SYSTEM 3]      [MANUFACTURER]      [X YEARS]         [PARTS/LABOR]
+  [PRODUCT/SYSTEM 4]      [MANUFACTURER]      [X YEARS]         [PARTS/LABOR]
+
+================================================================================
+                          WARRANTY EXCLUSIONS
+================================================================================
+
+This warranty does NOT cover:
+
+  1. Normal wear and tear
+  2. Damage caused by Client, occupants, third parties, or Acts of God
+     (including fire, flood, earthquake, severe weather, etc.)
+  3. Damage caused by improper use, neglect, or failure to maintain
+     the work per Contractor's written maintenance recommendations
+  4. Modifications, alterations, or repairs made by parties other than
+     Contractor without Contractor's prior written approval
+  5. Pre-existing conditions or defects not created by Contractor
+  6. Settling, shrinkage, or expansion of building materials within
+     normal industry tolerances
+  7. Damage resulting from drainage, grading, or site conditions
+     outside Contractor's scope of work
+  8. Cosmetic issues that do not affect structural integrity or function
+     and were visible at the time of completion walkthrough
+  9. Issues arising from Client's failure to report problems promptly
+     that result in aggravated damage
+
+================================================================================
+                          CLIENT RESPONSIBILITIES
+================================================================================
+
+To maintain this warranty, Client agrees to:
+
+  1. Perform regular maintenance as recommended by Contractor and
+     manufacturers of installed products.
+  2. Report any defects or concerns to Contractor in writing promptly.
+  3. Allow Contractor reasonable access to inspect and repair warranted items.
+  4. Not make unauthorized modifications to warranted work.
+  5. Maintain proper ventilation, drainage, and building conditions.
+
+Recommended Maintenance Schedule:
+  [ ] [MAINTENANCE ITEM 1 — e.g., Inspect caulking and seals annually]
+  [ ] [MAINTENANCE ITEM 2 — e.g., Clean gutters twice annually]
+  [ ] [MAINTENANCE ITEM 3 — e.g., Service HVAC system annually]
+  [ ] [MAINTENANCE ITEM 4]
+
+================================================================================
+                          HOW TO FILE A WARRANTY CLAIM
+================================================================================
+
+To initiate a warranty claim, Client must:
+
+  Step 1: Contact Contractor in WRITING within the warranty period.
+          Email: [EMAIL ADDRESS]
+          Mail:  [MAILING ADDRESS]
+
+  Step 2: Describe the defect, when it was first observed, and its
+          current condition. Photographs are strongly encouraged.
+
+  Step 3: Contractor will respond within [5] business days to schedule
+          an inspection.
+
+  Step 4: If the claim is covered, Contractor will schedule and complete
+          repairs within a reasonable timeframe.
+
+  Emergency claims (water intrusion, structural issues):
+  Call: [EMERGENCY PHONE] — Available [HOURS]
+
+================================================================================
+                          TRANSFERABILITY
+================================================================================
+
+  [ ] This warranty IS transferable to subsequent owners of the property.
+      Contractor must be notified of the transfer in writing.
+
+  [ ] This warranty is NOT transferable and applies only to the original
+      Client named above.
+
+================================================================================
+                          LIMITATION OF LIABILITY
+================================================================================
+
+This warranty is Contractor's sole and exclusive obligation with respect to
+defects in workmanship. CONTRACTOR'S TOTAL LIABILITY UNDER THIS WARRANTY SHALL
+NOT EXCEED THE ORIGINAL CONTRACT AMOUNT. IN NO EVENT SHALL CONTRACTOR BE LIABLE
+FOR CONSEQUENTIAL, INCIDENTAL, OR SPECIAL DAMAGES.
+
+THIS WARRANTY IS PROVIDED IN LIEU OF ALL OTHER WARRANTIES, EXPRESS OR IMPLIED,
+INCLUDING ANY IMPLIED WARRANTY OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR
+PURPOSE.
+
+================================================================================
+                          GOVERNING LAW
+================================================================================
+
+This Warranty is governed by the laws of the State of [STATE].
+
+================================================================================
+                          SIGNATURES
+================================================================================
+
+CONTRACTOR:
+
+Signature: _______________________________ Date: _______________
+Printed Name: [YOUR NAME]
+Title: [OWNER / AUTHORIZED REPRESENTATIVE]
+Company: [YOUR COMPANY NAME]
+
+
+CLIENT ACKNOWLEDGMENT:
+
+I/We have received this Warranty Certificate, understand its terms, and
+confirm the project was completed to my/our satisfaction on the date above.
+
+Client Signature: _______________________________ Date: _______________
+Printed Name: _____________________________________
+
+================================================================================
+                    ContractorDocs.ai — A Pearl Ventures Company
+              Professional Templates. Protect Your Business. Get Paid.
+================================================================================
