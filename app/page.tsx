@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const ShieldIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -156,6 +156,9 @@ export default function Home() {
   const [captured, setCaptured] = useState(false)
   const [downloadUrl, setDownloadUrl] = useState('')
   const [submitting, setSubmitting] = useState(false)
+  const [exitShown, setExitShown] = useState(false)
+  const [exitEmail, setExitEmail] = useState('')
+  const [exitSubmitted, setExitSubmitted] = useState(false)
 
   async function handleCapture(e: React.FormEvent) {
     e.preventDefault()
@@ -180,6 +183,17 @@ export default function Home() {
     page: { background: '#0a0f1a', minHeight: '100vh', color: '#fff', fontFamily: 'system-ui, -apple-system, sans-serif' } as React.CSSProperties,
     container: { maxWidth: '1200px', margin: '0 auto', padding: '0 2rem' } as React.CSSProperties,
   }
+
+
+  useEffect(() => {
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !exitShown) {
+        setExitShown(true)
+      }
+    }
+    document.addEventListener('mouseleave', handleMouseLeave)
+    return () => document.removeEventListener('mouseleave', handleMouseLeave)
+  }, [exitShown])
 
   return (
     <main style={s.page}>
@@ -281,11 +295,8 @@ export default function Home() {
 
       {/* Founder Story */}
       <section style={{ maxWidth: '800px', margin: '0 auto', padding: '5rem 2rem', display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
-        <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: 'linear-gradient(135deg, #1e3a5f, #2563eb)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', border: '3px solid rgba(37,99,235,0.4)' }}>
-          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+        <div style={{ flexShrink: 0 }}>
+          <img src="/keegan-pearl.jpg" alt="Keegan Pearl — Founder" style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover', objectPosition: 'center top', border: '3px solid rgba(37,99,235,0.4)', display: 'block' }} />
         </div>
         <div style={{ flex: 1, minWidth: '280px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -508,6 +519,14 @@ export default function Home() {
           >
             Get the Full Bundle — $97
           </a>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginTop: '0.875rem', flexWrap: 'wrap' }}>
+                <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="20" rx="3" fill="#1A1F71"/><text x="4" y="14" fontFamily="Arial" fontWeight="bold" fontSize="9" fill="white">VISA</text></svg>
+                <svg width="32" height="20" viewBox="0 0 32 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="20" rx="3" fill="#252525"/><circle cx="13" cy="10" r="6" fill="#EB001B"/><circle cx="19" cy="10" r="6" fill="#F79E1B"/><path d="M16 5.7a6 6 0 0 1 0 8.6A6 6 0 0 1 16 5.7z" fill="#FF5F00"/></svg>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', padding: '0.2rem 0.5rem' }}>
+                  <svg width="10" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span style={{ fontSize: '0.65rem', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.04em' }}>Secured by Stripe</span>
+                </div>
+              </div>
           <p style={{ marginTop: '1.25rem', color: 'rgba(255,255,255,0.25)', fontSize: '0.8rem' }}>
             Instant download · Unlimited use · 30-day guarantee
           </p>
@@ -527,6 +546,32 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* Exit Intent Popup */}
+      {exitShown && !exitSubmitted && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem' }}>
+          <div style={{ background: '#0f1929', border: '1px solid rgba(37,99,235,0.3)', borderRadius: '16px', padding: '3rem 2.5rem', maxWidth: '480px', width: '100%', textAlign: 'center', position: 'relative' }}>
+            <button onClick={() => setExitShown(false)} style={{ position: 'absolute', top: '1rem', right: '1rem', background: 'rgba(255,255,255,0.08)', border: 'none', color: '#fff', width: '32px', height: '32px', borderRadius: '6px', cursor: 'pointer', fontSize: '1rem' }}>✕</button>
+            <div style={{ fontSize: '0.7rem', color: '#2563eb', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '1rem', fontWeight: 700 }}>WAIT — FREE GIFT</div>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-0.02em', marginBottom: '0.75rem', lineHeight: 1.2 }}>Before You Go — Get the Scope of Work Template Free</h3>
+            <p style={{ fontSize: '0.875rem', color: 'rgba(255,255,255,0.55)', lineHeight: 1.65, marginBottom: '1.75rem' }}>The document that eliminates &quot;that&apos;s not what I agreed to&quot; on every job. Yours free, no credit card.</p>
+            <div style={{ display: 'flex', gap: '0.75rem', flexDirection: 'column' }}>
+              <input type="email" value={exitEmail} onChange={e => setExitEmail(e.target.value)} placeholder="your@email.com" style={{ padding: '0.875rem 1rem', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.15)', background: 'rgba(255,255,255,0.05)', color: '#fff', fontSize: '0.9rem', outline: 'none' }} />
+              <button onClick={async () => { if (!exitEmail.includes('@')) return; await fetch('/api/capture', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ email: exitEmail, source: 'exit_intent' }) }); setExitSubmitted(true); setTimeout(() => setExitShown(false), 3000) }} style={{ padding: '0.875rem', background: '#2563eb', color: '#fff', border: 'none', borderRadius: '8px', fontWeight: 700, cursor: 'pointer', fontSize: '0.9rem' }}>Send Me the Free Template</button>
+            </div>
+            <p style={{ marginTop: '1rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.25)' }}>No spam. One email with your download link.</p>
+          </div>
+        </div>
+      )}
+      {exitShown && exitSubmitted && (
+        <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.85)', zIndex: 200, display: 'flex', alignItems: 'center', justifyContent: 'center' }} onClick={() => setExitShown(false)}>
+          <div style={{ background: '#0f1929', border: '1px solid rgba(34,197,94,0.3)', borderRadius: '16px', padding: '3rem', maxWidth: '400px', textAlign: 'center' }}>
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#22c55e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ margin: '0 auto 1rem' }}><polyline points="20 6 9 17 4 12"/></svg>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 700, marginBottom: '0.5rem' }}>Check Your Email</h3>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.875rem' }}>Your free Scope of Work template is on its way.</p>
+          </div>
+        </div>
+      )}
     </main>
   )
 }

@@ -1,5 +1,21 @@
 import type { Metadata } from 'next'
 
+
+const schemaMarkup = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Contractor Document Bundle",
+  "description": "Professional contractor legal documents including service agreements, lien waivers, change orders, and more. Attorney-reviewed templates for contractors.",
+  "brand": { "@type": "Brand", "name": "ContractorDocuments.com" },
+  "offers": {
+    "@type": "AggregateOffer",
+    "lowPrice": "27",
+    "highPrice": "197",
+    "priceCurrency": "USD",
+    "offerCount": "3"
+  }
+}
+
 export const metadata: Metadata = {
   title: 'ContractorDocuments.com — Professional Contractor Document Templates',
   description: 'Professional contractor documents written by legal experts. Estimates, contracts, lien waivers, change orders, and more. One-time payment. Instant download.',
