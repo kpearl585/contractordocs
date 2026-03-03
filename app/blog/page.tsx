@@ -5,6 +5,34 @@ export const metadata = {
 
 const posts = [
   {
+    slug: 'contractor-invoice-template',
+    title: 'Contractor Invoice Templates: Get Paid Faster and Look Professional',
+    excerpt: "The format of your invoice affects how quickly you get paid. Here's what belongs in every contractor invoice template and how to structure line items that get approved without back-and-forth.",
+    date: 'March 6, 2026',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'change-order-form-for-contractors',
+    title: 'Why Every Contractor Needs a Change Order Form (And How to Use It)',
+    excerpt: "Every job changes. The change order form for contractors is the document that captures those changes in writing — and protects you from doing unpaid work.",
+    date: 'March 5, 2026',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'how-to-avoid-contractor-disputes',
+    title: 'How to Avoid Contractor Disputes Before They Start',
+    excerpt: "Disputes are almost never about the quality of the work. They are about unclear expectations and undocumented decisions. Here is how to prevent them with better systems.",
+    date: 'March 4, 2026',
+    readTime: '5 min read',
+  },
+  {
+    slug: 'contractor-contract-template',
+    title: 'The Contractor Contract Template That Protects You on Every Job',
+    excerpt: "A solid contractor contract template does more than protect you legally — it sets the tone for the entire job. Here's what every section needs to cover.",
+    date: 'March 3, 2026',
+    readTime: '5 min read',
+  },
+  {
     slug: 'why-contractors-lose-money-without-contracts',
     title: 'Why Contractors Lose Thousands Without a Signed Contract',
     excerpt: "A handshake deal costs the average contractor $2,400 per dispute. Here's why written contracts are the single highest-ROI tool in your business.",
