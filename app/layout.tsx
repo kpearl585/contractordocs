@@ -1,5 +1,18 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
+import { Space_Grotesk, Inter } from 'next/font/google'
+import './globals.css'
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  variable: '--font-display',
+  display: 'swap',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+  display: 'swap',
+})
 
 const schemaMarkup = {
   "@context": "https://schema.org",
@@ -14,6 +27,11 @@ const schemaMarkup = {
     "priceCurrency": "USD",
     "offerCount": "3"
   }
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 }
 
 export const metadata: Metadata = {
@@ -37,8 +55,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body style={{ margin: 0, padding: 0, background: '#0a0f1a' }}>{children}</body>
+    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+        />
+      </head>
+      <body style={{ margin: 0, padding: 0, background: '#080808' }}>{children}</body>
     </html>
   )
 }
